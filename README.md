@@ -28,9 +28,17 @@ Any unknown keys in the settings string will be ignored. As all properties are o
 ## Applying security
 MQTT allows authentication both on application and transportation layer. To use application layer authentication, simply set the `userName` and `password` property in OpenMUC's setting string (see Driver configuration above). Note that the user name and password will be sent **in plain-text** over the network if no transport encryption has been applied. Depending on the broker implementation, the client id may also be used for authentication together with the provided user name and password.
 
+To apply transport encryption and server authentication, the broker must provide a trusted certificate. If using a self-signed certificate, it must be added to the trusted certificates on the client system. Trusted certificates by default are located in the keystore `JAVA_HOME/jre/lib/security/cacerts`. To find out the JAVA_HOME directory on UNIX based systems, execute the following command:
+
+```
+/usr/libexec/java_home
+```
+
+Afterwards, add the certificate to the truststore like shown [in this article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html). If adding the certificate to the `cacerts` truststore doesn't work, try to also add it to the `jssecacerts` truststore in the same directory (worked for me).
+
 ## Useful tools and links
 This section provides a collection of useful tools and links for working with MQTT.
 
 * For testing, public available MQTT brokers may be useful. The test server provided by [mosquitto.org](http://test.mosquitto.org/) provides ports for unencrypted, encrypted and websocket-based connections
 * HiveMQ provides an [online websocket client](http://www.hivemq.com/demos/websocket-client/) which can send and receive MQTT messages
-* [This article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html) shows how to add a broker certificate to the list of trusted ones
+* [This article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html) shows how to add a broker certificate to the local truststore at the client system
