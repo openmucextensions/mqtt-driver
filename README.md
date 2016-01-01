@@ -39,8 +39,9 @@ To apply transport encryption and server authentication, the broker must provide
 Afterwards, add the certificate to the truststore like shown [in this article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html). If adding the certificate to the `cacerts` truststore doesn't work, try to also add it to the `jssecacerts` truststore in the same directory (worked for me).
 
 ## Useful tools and links
-This section provides a collection of useful tools and links for working with MQTT.
+This section provides a collection of useful tools and links for working with MQTT:
 
 * For testing, public available MQTT brokers may be useful. The test server provided by [mosquitto.org](http://test.mosquitto.org/) provides ports for unencrypted, encrypted and websocket-based connections
 * HiveMQ provides an [online websocket client](http://www.hivemq.com/demos/websocket-client/) which can send and receive MQTT messages
 * [This article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html) shows how to add a broker certificate to the local truststore at the client system
+* HiveMQ also provides a great tutorial explaining the [MQTT essentials](http://www.hivemq.com/blog/mqtt-essentials/) and some [MQTT security fundamentals](http://www.hivemq.com/blog/mqtt-security-fundamentals/)
