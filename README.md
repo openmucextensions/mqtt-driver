@@ -28,3 +28,8 @@ Any unknown keys in the settings string will be ignored. As all properties are o
 ## Applying security
 MQTT allows authentication both on application and transportation layer. To use application layer authentication, simply set the `userName` and `password` property in OpenMUC's setting string (see Driver configuration above). Note that the user name and password will be sent **in plain-text** over the network if no transport encryption has been applied. Depending on the broker implementation, the client id may also be used for authentication together with the provided user name and password.
 
+## Useful tools and links
+This section provides a collection of useful tools and links for working with MQTT.
+
+* For testing, public available MQTT brokers may be useful. The test server provided by [mosquitto.org](http://test.mosquitto.org/) provides ports for unencrypted, encrypted and websocket-based connections
+* HiveMQ provides an [online websocket client](http://www.hivemq.com/demos/websocket-client/) which can send and receive MQTT messages
