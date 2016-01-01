@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'osgi'
+
+configurations.create('embed')
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    
+    maven {
+      url "https://repo.eclipse.org/content/repositories/paho-releases/"
+    }
+}
+
+dependencies {  
+	
+	def openmucversion = '0.15.2'
+	
+	compile group: 'org.openmuc.framework', name: 'openmuc-core-api', version: openmucversion
+	compile group: 'org.openmuc.framework', name: 'openmuc-core-spi', version: openmucversion
+	compile group: 'org.openmuc.framework', name: 'openmuc-core-datamanager', version: openmucversion
+	
+	compile group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.0.2'
+	embed group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.0.2'
+	
+	testCompile group: 'junit', name: 'junit', version: '4+'
+	
+	// compile files('dependencies/yourfile.jar')
+    // embed files('dependencies/yourfile.jar')
+}
+
+jar {
+  manifest {
+    name = "OpenMUC Driver - MQTT"
+    version = "1.0.0"
+    symbolicName = "org.openmucextensions.driver.mqtt";
+    instruction 'Bundle-ClassPath', '.,lib/org.eclipse.paho.client.mqttv3-1.0.2.jar'
+    instruction 'Import-Package', '!org.eclipse.paho.client.mqttv3,javax.net,javax.net.ssl,*'
+    instruction 'Export-Package', ''
+    instruction 'Service-Component', 'OSGI-INF/driver.xml'
+  }
+}
+
+jar {
+  into('lib') {
+    from configurations.embed
+  }
+}
+
+tasks.eclipse.dependsOn(cleanEclipse)
