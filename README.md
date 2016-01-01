@@ -17,6 +17,8 @@ If the port is not specified, it will default to 1883 for tcp:// URIs, and 8883 
 * `password` the password that will be used when connecting to the external broker
 * `cleanSession` this flag sets whether the client and server should remember state across restarts and reconnects. Possible values are `true` and `false`, the default is `true`
 * `connectionTimeout` this value, measured in seconds, defines the maximum time interval the client will wait for the network connection to the MQTT server to be established. The default timeout is 30 seconds
+* `qos` the [quality of service level](http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels) used for sending a message (driver write operation) between 0 and 2. The default level is 1 (message will be delivered at least once)
+* `retained` if set to `true`, the last message sent for a specific topic will be retained by the broker. Possible values are `true` and `false`, the default is `true`
 
 Note that all property keys are **case-sensitive**. Keys and the corresponding values must have the format `key=value`, leading and trailing whitespace will be ignored. Multiple properties must be separated using a comma. The following example shows a valid settings string:
 
