@@ -1,5 +1,13 @@
 # MQTT Driver
-OpenMUC driver for reading/writing values via MQTT
+OpenMUC driver for reading/writing values via MQTT. The bundle uses the [Eclipse Paho library](http://www.eclipse.org/paho/) internally. The following functionality is provided:
+
+* Connecting to multiple MQTT brokers in one driver instance
+* Optional TLS encryption of the broker connection
+* Subscription to multiple topics
+* Notification of OpenMUC framework listeners, if a new message arrives
+* Sending messages by writing to a topic (represented by a channel)
+* Outgoing messages will be persisted to a file for later delivery, if the broker connection has been lost
+* Heartbeat signal (ping messages) to monitor broker connection
 
 ## Driver configuration
 A OpenMUC device represents a connection to an external MQTT broker. The **device address** therefore is used as the broker's address. The address of the broker to connect to is specified as a URI. Two types of connection are supported `tcp://` for a TCP connection and `ssl://` for a TCP connection secured by SSL/TLS. For example:
