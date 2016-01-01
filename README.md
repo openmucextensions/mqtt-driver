@@ -1,7 +1,7 @@
 # MQTT Driver
 OpenMUC driver for reading/writing values via MQTT
 
-The following definition comes from the MQTT 3.1.1 specification:
+The following definition comes from the [MQTT 3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html):
 > MQTT is a Client Server publish/subscribe messaging transport protocol. It is light weight, open, simple, and designed so as to be easy to implement. These characteristics make it ideal for use in many situations, including constrained environments such as for communication in Machine to Machine (M2M) and Internet of Things (IoT) contexts where a small code footprint is required and/or network bandwidth is at a premium.
 
 ## Driver configuration
