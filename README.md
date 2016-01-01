@@ -24,3 +24,7 @@ Note that all property keys are **case-sensitive**. Keys and the corresponding v
 clientId=MyClientId,keepAliveInterval=120,cleanSession=false
 ```
 Any unknown keys in the settings string will be ignored. As all properties are optional, an empty settings string is also valid.
+
+## Applying security
+MQTT allows authentication both on application and transportation layer. To use application layer authentication, simply set the `userName` and `password` property in OpenMUC's setting string (see Driver configuration above). Note that the user name and password will be sent **in plain-text** over the network if no transport encryption has been applied. Depending on the broker implementation, the client id may also be used for authentication together with the provided user name and password.
+
