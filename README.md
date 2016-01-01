@@ -33,3 +33,4 @@ This section provides a collection of useful tools and links for working with MQ
 
 * For testing, public available MQTT brokers may be useful. The test server provided by [mosquitto.org](http://test.mosquitto.org/) provides ports for unencrypted, encrypted and websocket-based connections
 * HiveMQ provides an [online websocket client](http://www.hivemq.com/demos/websocket-client/) which can send and receive MQTT messages
+* [This article](http://magicmonster.com/kb/prg/java/ssl/pkix_path_building_failed.html) shows how to add a broker certificate to the list of trusted ones
