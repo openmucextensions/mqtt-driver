@@ -9,6 +9,9 @@ OpenMUC driver for reading/writing values via MQTT. The bundle uses the [Eclipse
 * Outgoing messages will be persisted to a file for later delivery, if the broker connection has been lost
 * Heartbeat signal (ping messages) to monitor broker connection
 
+## How to build
+As showen in the [Gradle build file](https://github.com/openmucextensions/mqtt-driver/blob/master/build.gradle), the driver has some dependencies to the OpenMUC framework. Before the driver can be built, the OpenMUC libraries must have been installed on the local system. Download OpenMUC from the [project's website](https://openmuc.org/) and install it by executing `gradle install` in the OpenMUC root directory. Afterwards, the driver can be build with `gradle build`. Note that the right **OpenMUC version** must be set in the driver's [build file](https://github.com/openmucextensions/mqtt-driver/blob/master/build.gradle) in the `dependencies` section.
+
 ## Driver configuration
 A OpenMUC device represents a connection to an external MQTT broker. The **device address** therefore is used as the broker's address. The address of the broker to connect to is specified as a URI. Two types of connection are supported `tcp://` for a TCP connection and `ssl://` for a TCP connection secured by SSL/TLS. For example:
 
