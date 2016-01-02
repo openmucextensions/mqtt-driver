@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="Component Definition">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.openmucextensions.driver.mqtt">
    <implementation class="org.openmucextensions.driver.mqtt.MqttDriver"/>
    <service>
       <provide interface="org.openmuc.framework.driver.spi.DriverService"/>
